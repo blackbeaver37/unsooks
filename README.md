@@ -58,9 +58,9 @@ return <div className="App"></div>;
 const onClickFunc = () => console.log("Click");
 const refElement = useClick(onClickFunc);
 return (
-  <div className="App">
-    <h1 ref={refElement}>Text</h1>
-  </div>
+    <div className="App">
+        <h1 ref={refElement}>Text</h1>
+    </div>
 );
 ```
 
@@ -72,9 +72,9 @@ return (
 const onHoverFunc = () => console.log("Hover");
 const refElement = useHover(onHoverFunc);
 return (
-  <div className="App">
-    <h1 ref={refElement}>Text</h1>
-  </div>
+    <div className="App">
+        <h1 ref={refElement}>Text</h1>
+    </div>
 );
 ```
 
@@ -118,6 +118,109 @@ useBeforeLeave(handleLeave);
 return (
     <div className="App">
         <h1>Text</h1>
+    </div>
+);
+```
+
+</br>
+
+## useFadeIn
+
+```js
+const duration = 3; // default 1
+const delay = 1; // default 0
+const fadeIn = useFadeIn(duration, delay);
+return (
+    <div className="App">
+        <h1 {...fadeIn}>Text</h1>
+    </div>
+);
+```
+
+</br>
+
+## useNetwork
+
+```js
+const handleNetworkChange = (online) => {
+    console.log(online ? "Online" : "Offline");
+};
+const online = useNetwork(handleNetworkChange); // true of false
+return (
+    <div className="App">
+        <h1>{online ? "Online" : "Offline"}</h1>
+    </div>
+);
+```
+
+</br>
+
+## useScroll
+
+```js
+const { y } = useScroll();
+return (
+    <div className="App" style={{ height: "1000vh" }}>
+        <h1 style={{ position: "fixed", color: y > 100 ? "red" : "blue" }}>
+            Text
+        </h1>
+    </div>
+);
+```
+
+</br>
+
+## useFullscreen
+
+```js
+const onFullscreen = (isFull) => {
+    console.log(isFull ? "Full Screen" : "Not Full screen");
+};
+const { element, triggerFull, exitFull } = useFullscreen(onFullscreen);
+return (
+    <div className="App">
+        <div ref={element}>
+            <img src="img-src" alt="img-alt" />
+            <button onClick={exitFull}>Exit Full Screen</button>
+        </div>
+        <button onClick={triggerFull}>Full Screen</button>
+    </div>
+);
+);
+```
+
+</br>
+
+## useNotification
+
+```js
+const options = {
+    body: "body",
+    icon: "icon",
+    ...
+};
+const triggerNotification = useNotification("title", options);
+return (
+    <div className="App">
+        <button onClick={triggerNotification}>Button</button>
+    </div>
+);
+```
+
+</br>
+
+## useAxios
+
+```js
+const { loading, error, data, refetch } = useAxios({
+    url: "api-url",
+});
+return (
+    <div className="App">
+        <h1>{loading && "Loading"}</h1>
+        <h1>{error && "Error!"}</h1>
+        <button onClick={refetch}>Refetch</button>
+        <div>{data && JSON.stringify(data)}</div>
     </div>
 );
 ```
