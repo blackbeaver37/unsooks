@@ -49,3 +49,75 @@ const titleUpdater = useTitle("Loading...");
 setTimeout(() => titleUpdater("Home"), 5000);
 return <div className="App"></div>;
 ```
+
+</br>
+
+## useClick
+
+```js
+const onClickFunc = () => console.log("Click");
+const refElement = useClick(onClickFunc);
+return (
+  <div className="App">
+    <h1 ref={refElement}>Text</h1>
+  </div>
+);
+```
+
+</br>
+
+## useHover
+
+```js
+const onHoverFunc = () => console.log("Hover");
+const refElement = useHover(onHoverFunc);
+return (
+  <div className="App">
+    <h1 ref={refElement}>Text</h1>
+  </div>
+);
+```
+
+</br>
+
+## useConfirm
+
+```js
+const deleteFunc = () => console.log("Delete");
+const cancelFunc = () => console.log("Cancel"); // option
+const message = "Check";
+const confirmDelete = useConfirm(message, deleteFunc, cancelFunc);
+return (
+    <div className="App">
+        <button onClick={confirmDelete}>Delete</button>
+    </div>
+);
+```
+
+</br>
+
+## usePreventLeave
+
+```js
+const { enablePrevent, disablePrevent } = usePreventLeave();
+return (
+    <div className="App">
+        <button onClick={enablePrevent}>Protect</button>
+        <button onClick={disablePrevent}>UnProtect</button>
+    </div>
+);
+```
+
+</br>
+
+## useBeforeLeave
+
+```js
+const handleLeave = () => console.log("Leave");
+useBeforeLeave(handleLeave);
+return (
+    <div className="App">
+        <h1>Text</h1>
+    </div>
+);
+```
