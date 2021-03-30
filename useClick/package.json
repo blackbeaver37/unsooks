@@ -1,0 +1,24 @@
+{
+  "name": "@unsooks/use-click",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blackbeaver37/unsooks.git"
+  },
+  "keywords": [
+    "react",
+    "hook"
+  ],
+  "author": "YoonSoo Kim <fhkaldh@naver.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blackbeaver37/unsooks/issues"
+  },
+  "homepage": "https://github.com/blackbeaver37/unsooks#readme",
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
